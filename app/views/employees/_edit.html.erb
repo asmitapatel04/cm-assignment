@@ -1,0 +1,15 @@
+<div class="modal-header">
+  <button type="button" class="close" data-bs-dismiss="modal">x</button>
+  <h4 class="modal-title" id="myModalLabel">Department</h4>
+</div>
+<div class="modal-body">
+<%= form_with model: employee, url: employee_path(employee), method: :patch, local: true, scope: :employee do |f| %>
+  <div class="form form-horizontal">
+    <%= f.label :question %><br>
+    <%= f.collection_select :department_id, Department.all, :id, :name %>
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>
+<div class="modal-footer">
+</div>

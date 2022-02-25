@@ -1,0 +1,39 @@
+<div class="container">
+  <h1>Employees</h1>
+
+  <style>
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+  </style>
+
+  <table>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Salary</th>
+      <th>Department</th>
+    </tr>
+    <% @employees.each do |emp| %>
+      <tr>
+        <td><%= emp.first_name %></td>
+        <td><%= emp.last_name %></td>
+        <td><%= emp.email_address %></td>
+        <td><%= emp.phone %></td>
+        <td><%= emp.salary %></td>
+        <td><%= emp.department.name %></td>
+        <td><%= link_to 'Edit department', edit_employee_path(emp), remote: true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-small btn-primary' %></td>
+      </tr>
+    <% end %>
+  </table>
+
+  <div id="modal-window" class="modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content"></div>
+    </div>
+  </div>
+
+</div>
